@@ -1,11 +1,15 @@
+# Shiny
 library(shiny)
-library(imager)
-library(keras)
 library(shinythemes)
+# Image processing
+library(imager)
+# ML library
+library(keras)
 
-
+# Load Model
 new_model <- load_model_hdf5("C:/Users/yahya/RProjects/IntroToDSProject/Model/model.h5")
 
+# UI
 ui <- fluidPage(
   # Hide Warnings
   tags$style(type="text/css",
@@ -25,6 +29,7 @@ ui <- fluidPage(
     tabPanel("Digit Recognizer",
              sidebarLayout(
                sidebarPanel(
+                 # File Input
                  fileInput("file1", "Choose File", accept = NULL)
                ),
                mainPanel(
@@ -111,6 +116,7 @@ ui <- fluidPage(
 )
 )
 
+# Function to get the image
 convertToIM <- function(i) {
   path <- i[4]
   pathx <- gsub("\\\\", "/", path)
@@ -118,6 +124,7 @@ convertToIM <- function(i) {
   im <- resize(im, size_x = 28, size_y = 28, size_z = 1, size_c = 1)
   return(im)
 }
+# Function to plot the regular image
 plotIm <- function(i) {
   path <- i[4]
   pathx <- gsub("\\\\", "/", path)
@@ -125,6 +132,7 @@ plotIm <- function(i) {
   
   plot(im)
 }
+# Function to plot the resized image
 plotResize <- function(i) {
   path <- i[4]
   pathx <- gsub("\\\\", "/", path)
@@ -133,6 +141,7 @@ plotResize <- function(i) {
   im <- resize(im, size_x = 28, size_y = 28, size_z = 1, size_c = 1)
   plot(im)
 }
+# Function to do the prediction
 pred <- function(arr) {
   arr <- convertToIM(arr)
   arr <- array_reshape(arr, c(28, 28))
@@ -145,7 +154,9 @@ pred <- function(arr) {
 }
 
 
+# Server
 server <- function(input, output) {
+  # Output
   output$plot <- renderPlot({
     plotIm(input$file1)
   })
