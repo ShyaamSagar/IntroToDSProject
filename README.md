@@ -15,6 +15,9 @@ Group Members:
   
 The main goal of this project is classify handwritten digits into 10 possible classes (Digits 0~9), the project is built in [shiny](https://shiny.rstudio.com "Title").
 
+
+Contents:
+
 * The Main folder contains the Shiny page, called shinyPage.R.
 * The Model folder contains the neural network model, called model.h5.
 * The ModelScript folder contains the R script for the model, called model.R.
