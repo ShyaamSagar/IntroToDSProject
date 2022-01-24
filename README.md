@@ -15,5 +15,8 @@ Group Members:
   
 The main goal of this project is classify handwritten digits into 10 possible classes (Digits 0~9), the project is built in [shiny](https://shiny.rstudio.com "Title").
 
-
-The model script contains the model, and the prediction script contains the R code for plotting and predicting. Make sure you set the correct path to load the model if you want to use the fullScript.R file, the path should be set to modelScript.
+* The Main folder contains the Shiny page, called shinyPage.R.
+* The Model folder contains the neural network model, called model.h5.
+* The ModelScript folder contains the R script for the model, called model.R.
+* The PredictionScript folder contains an R script that allows the user to look at the functionality of the model, called fullScript.R.
+* The PresentationScript folder contains the rStudio  presentation along with the images used in the presentation.
