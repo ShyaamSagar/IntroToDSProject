@@ -30,7 +30,7 @@ ui <- fluidPage(
              sidebarLayout(
                sidebarPanel(
                  # File Input
-                 fileInput("file1", "Choose File", accept = NULL)
+                 fileInput("file1", "Choose File", accept = c('image/png', 'image/jpeg','image/jfif','image/jpg'))
                ),
                mainPanel(
                  
